@@ -21,6 +21,6 @@ public interface BloggerDao {
 	 * 增加博主信息
 	 * @return
 	 */
-	public Blogger insertBlogger();
+	public void insertBlogger(Blogger blogger);
 
 }
