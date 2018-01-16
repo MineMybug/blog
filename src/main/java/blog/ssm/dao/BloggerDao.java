@@ -2,7 +2,7 @@ package blog.ssm.dao;
 
 import org.springframework.stereotype.Repository;
 
-import blog.ssm.entity.Blogger;
+import blog.ssm.pojo.Blogger;
 
 /**
 * @author rh

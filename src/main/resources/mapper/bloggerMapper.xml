@@ -26,7 +26,7 @@
             select <include refid="BloggerColumns"/>    from t_blogger where id = 1
     </select>
     
-    <insert id="insertBlogger" parameterType="blog.ssm.entity.Blogger">
+    <insert id="insertBlogger" parameterType="blog.ssm.pojo.Blogger">
     	insert into t_blogger (userName,passWord,nickName,sign) values (#{userName},#{password},#{nickName},#{sign})
     </insert>
 </mapper>

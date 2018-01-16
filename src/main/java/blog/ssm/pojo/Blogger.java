@@ -1,4 +1,4 @@
-package blog.ssm.entity;
+package blog.ssm.pojo;
 
 import org.springframework.stereotype.Component;
 

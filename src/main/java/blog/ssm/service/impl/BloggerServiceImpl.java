@@ -7,10 +7,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.InitBinder;
 
 import blog.ssm.dao.BloggerDao;
-import blog.ssm.entity.Blogger;
+import blog.ssm.pojo.Blogger;
 import blog.ssm.service.BloggerService;
 
 /** 

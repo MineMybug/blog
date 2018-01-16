@@ -1,6 +1,5 @@
 package blog.ssm.service;
 
-import blog.ssm.entity.Blogger;
 
 /** 
  * @author  »Ó∫Ω  

@@ -8,7 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import blog.ssm.dao.BloggerDao;
-import blog.ssm.entity.Blogger;
+import blog.ssm.pojo.Blogger;
 
 /**
 * @author rh

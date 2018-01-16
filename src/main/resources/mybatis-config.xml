@@ -5,6 +5,6 @@
 <configuration>
     <!-- 别名 -->
     <typeAliases>
-        <package name="blog.ssm.entity"/>
+        <package name="blog.ssm.pojo"/>
     </typeAliases>
 </configuration>
