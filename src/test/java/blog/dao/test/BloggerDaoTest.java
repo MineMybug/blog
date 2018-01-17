@@ -1,5 +1,7 @@
 package blog.dao.test;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.junit.Test;
@@ -20,11 +22,16 @@ public class BloggerDaoTest {
 
 	    @Resource   //◊¢»ÎBloggerDao∂‘œÛ
 	    private BloggerDao bloggerDao;
+	    @Resource
+	    private Blogger blogger;
 
-	    @Test
+	    @Test   
 	    public void getBloggerData() throws Exception {
-	        Blogger blogger = bloggerDao.getBloggerData();
-	        System.out.println(blogger.toString());
+	    	Blogger blogger = new Blogger();
+	    	blogger.setId(29);
+	    	blogger.setUserName("ww");
+	        List<Blogger> list = bloggerDao.getBloggerData(blogger);
+	        System.out.println(list.toString());
 	    }
 	    
 	    @Test
@@ -37,5 +44,33 @@ public class BloggerDaoTest {
 	    	bloggerDao.insertBlogger(blogger);
 //	    	System.out.println(num);
 //	    	return num;
+	    }
+	    
+	    @Test
+	    public void findOneById(){
+	    	Long id = 28l;
+	    	Blogger blogger = bloggerDao.findOneById(id);
+	    	System.out.println(blogger);
+	    }
+	    
+	    @Test
+	    public void selectInCondition(){
+	    	blogger.setId(28);
+//	    	blogger.setUserName("ww");
+	    	List<Blogger> list = bloggerDao.selectInCondition(blogger);
+	    	for(Blogger blogger : list){
+	    		System.out.println(blogger.toString());
+	    	}
+	    }
+	    
+	    @Test
+	    public void selectChoose(){
+	    	blogger.setId(5);
+	    	blogger.setUserName("ww");
+	    	blogger.setPassword("123456");
+	    	List<Blogger> list = bloggerDao.selectChoose(blogger);
+	    	for(Blogger blogger : list){
+	    		System.out.println(blogger.toString());
+	    	}
 	    }
 }

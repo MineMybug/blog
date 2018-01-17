@@ -22,11 +22,38 @@
         id,username,password,profile,nickname,sign,imagename
     </sql>
     <!-- 接口中getBloggerData 具体实现-->
-    <select id="getBloggerData" resultMap="BloggerResult">
-            select <include refid="BloggerColumns"/>    from t_blogger where id = 1
+    <select id="getBloggerData" parameterType="Blogger" resultMap="BloggerResult">
+            select <include refid="BloggerColumns"/>    from t_blogger where id = #{id} and userName = #{userName}
     </select>
     
-    <insert id="insertBlogger" parameterType="blog.ssm.pojo.Blogger">
+    <insert id="insertBlogger" parameterType="Blogger">
     	insert into t_blogger (userName,passWord,nickName,sign) values (#{userName},#{password},#{nickName},#{sign})
     </insert>
+    
+    <select id="findOneById" parameterType="Long" resultMap="BloggerResult">
+    	select <include refid="BloggerColumns"/> from t_blogger where id = #{id}
+    </select>
+    
+    <select id="selectInCondition" parameterType="Blogger" resultMap="BloggerResult">
+    	select <include refid="BloggerColumns"/> from t_blogger where id > #{id}
+    	<if test="userName != null">
+    	and userName = #{userName}
+    	</if>
+    </select>
+    
+    <select id="selectChoose" parameterType="Blogger" resultMap="BloggerResult">
+    	select <include refid="BloggerColumns"/> from t_blogger where id > #{id}
+    	<choose>
+    		<when test="userName !=null">
+    			and userName = #{userName}
+    		</when>
+    		<when test="password !=null">
+    			and password = #{password}
+    		</when>
+    		<otherwise>
+    			or 1=1
+    		</otherwise>
+    	</choose>
+    </select>
+    
 </mapper>
