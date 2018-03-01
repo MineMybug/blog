@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="blog.ssm.dao.UserDao">
+	 <resultMap type="User" id="UserResultMap">
+        <id property="id" column="id"/>
+        <result property="userName" column="username"/>
+    </resultMap>
+
+	 <!--  定义字段集合 -->
+    <sql id="UserColumns">
+        id,username
+    </sql>
+	
+	<insert id="save">
+		insert into t_user(username) values (#{userName})
+	</insert>
+
+	<update id="update">
+		UPDATE t_user SET username = #{userName} WHERE id = #{id}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM t_user WHERE id = #{id}
+	</delete>
+	
+	<select id="find" resultMap="UserResultMap" parameterType="String">
+		select <include refid="UserColumns"/> from t_user where id = #{userId}
+	</select>
+</mapper>
